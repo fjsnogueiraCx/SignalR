@@ -9,6 +9,9 @@ using System.Threading;
 
 namespace Microsoft.AspNetCore.SignalR.Client
 {
+    /// <summary>
+    /// Extensions methods for <see cref="HubConnectionExtensions"/>.
+    /// </summary>
     public partial class HubConnectionExtensions
     {
         public static Task InvokeAsync(this HubConnection hubConnection, string methodName, CancellationToken cancellationToken = default)

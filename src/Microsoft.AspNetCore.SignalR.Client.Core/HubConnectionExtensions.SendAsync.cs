@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.SignalR.Client
 {
+    /// <summary>
+    /// Extensions methods for <see cref="HubConnectionExtensions"/>.
+    /// </summary>
     public static partial class HubConnectionExtensions
     {
         public static Task SendAsync(this HubConnection hubConnection, string methodName, CancellationToken cancellationToken = default)

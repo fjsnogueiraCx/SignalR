@@ -14,12 +14,19 @@ using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Microsoft.AspNetCore.SignalR.Client
 {
+    /// <summary>
+    /// A builder for configuring <see cref="HubConnection"/> instances.
+    /// </summary>
     public class HubConnectionBuilder : IHubConnectionBuilder
     {
         private bool _hubConnectionBuilt;
 
+        /// <inheritdoc />
         public IServiceCollection Services { get; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HubConnectionBuilder"/> class.
+        /// </summary>
         public HubConnectionBuilder()
         {
             Services = new ServiceCollection();
@@ -28,6 +35,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
             this.AddJsonProtocol();
         }
 
+        /// <inheritdoc />
         public HubConnection Build()
         {
             // Build can only be used once

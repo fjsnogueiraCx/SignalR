@@ -10,11 +10,19 @@ using Microsoft.Extensions.Options;
 
 namespace Microsoft.AspNetCore.SignalR.Client
 {
+    /// <summary>
+    /// A factory for creating <see cref="HttpConnection"/>.
+    /// </summary>
     public class HttpConnectionFactory : IConnectionFactory
     {
         private readonly HttpConnectionOptions _httpConnectionOptions;
         private readonly ILoggerFactory _loggerFactory;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HttpConnectionFactory"/> class.
+        /// </summary>
+        /// <param name="options">The connection options.</param>
+        /// <param name="loggerFactory">The logger factory.</param>
         public HttpConnectionFactory(IOptions<HttpConnectionOptions> options, ILoggerFactory loggerFactory)
         {
             if (options == null)
@@ -31,6 +39,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
             _loggerFactory = loggerFactory;
         }
 
+        /// <inheritdoc />
         public async Task<ConnectionContext> ConnectAsync(TransferFormat transferFormat)
         {
             var connection = new HttpConnection(_httpConnectionOptions, _loggerFactory);
@@ -38,6 +47,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
             return connection;
         }
 
+        /// <inheritdoc />
         public Task DisposeAsync(ConnectionContext connection)
         {
             return ((HttpConnection)connection).DisposeAsync();

@@ -8,6 +8,9 @@ using System.Threading.Channels;
 
 namespace Microsoft.AspNetCore.SignalR.Client
 {
+    /// <summary>
+    /// Extensions methods for <see cref="HubConnectionExtensions"/>.
+    /// </summary>
     public static partial class HubConnectionExtensions
     {
         public static Task<ChannelReader<TResult>> StreamAsChannelAsync<TResult>(this HubConnection hubConnection, string methodName, CancellationToken cancellationToken = default)
