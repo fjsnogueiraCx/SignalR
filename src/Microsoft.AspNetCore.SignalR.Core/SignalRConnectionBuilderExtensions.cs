@@ -8,6 +8,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Microsoft.AspNetCore.SignalR
 {
+    /// <summary>
+    /// Extensions methods for <see cref="IConnectionBuilder"/>.
+    /// </summary>
     public static class SignalRConnectionBuilderExtensions
     {
         public static IConnectionBuilder UseHub<THub>(this IConnectionBuilder connectionBuilder) where THub : Hub

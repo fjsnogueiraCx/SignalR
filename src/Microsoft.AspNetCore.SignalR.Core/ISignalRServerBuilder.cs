@@ -3,6 +3,9 @@
 
 namespace Microsoft.AspNetCore.SignalR
 {
+    /// <summary>
+    /// A builder abstraction for configuring SignalR server object instances.
+    /// </summary>
     public interface ISignalRServerBuilder : ISignalRBuilder
     {
     }

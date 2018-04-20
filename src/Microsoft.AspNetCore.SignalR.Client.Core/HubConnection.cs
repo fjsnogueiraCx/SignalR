@@ -151,7 +151,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Invoke a streaming hub method using the specified method name, return type and arguments.
+        /// Invokes a streaming hub method using the specified method name, return type and arguments.
         /// </summary>
         /// <param name="methodName">The hub method name.</param>
         /// <param name="returnType">The hub return type.</param>
@@ -165,7 +165,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
             await StreamAsChannelCoreAsyncCore(methodName, returnType, args, cancellationToken).ForceAsync();
 
         /// <summary>
-        /// Invoke a hub method using the specified method name, return type and arguments.
+        /// Invokes a hub method using the specified method name, return type and arguments.
         /// </summary>
         /// <param name="methodName">The hub method name.</param>
         /// <param name="returnType">The hub return type.</param>
@@ -179,7 +179,8 @@ namespace Microsoft.AspNetCore.SignalR.Client
             await InvokeCoreAsyncCore(methodName, returnType, args, cancellationToken).ForceAsync();
 
         /// <summary>
-        /// Sends to a hub method using the specified method name and arguments, without waiting for a completion result.
+        /// Invokes to a hub method using the specified method name and arguments.
+        /// Does not wait for a response from the receiver.
         /// </summary>
         /// <param name="methodName">The hub method name.</param>
         /// <param name="args">The hub arguments.</param>

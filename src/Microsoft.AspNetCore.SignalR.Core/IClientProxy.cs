@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.SignalR
 {
+    /// <summary>
+    /// A proxy abstraction for invoking hub methods.
+    /// </summary>
     public interface IClientProxy
     {
         // client proxy method is called SendCoreAsync instead of SendAsync so that arrays of references

@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace Microsoft.AspNetCore.SignalR
 {
+    /// <summary>
+    /// Extensions methods for <see cref="IHubClients{T}"/>.
+    /// </summary>
     public static class IHubClientsExtensions
     {
         /// <summary>

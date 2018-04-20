@@ -3,10 +3,19 @@
 
 namespace Microsoft.AspNetCore.SignalR
 {
+    /// <summary>
+    /// A context abstraction for a hub.
+    /// </summary>
     public interface IHubContext<THub> where THub : Hub
     {
+        /// <summary>
+        /// Gets the clients for the hub.
+        /// </summary>
         IHubClients Clients { get; }
 
+        /// <summary>
+        /// Gets the group manager for the hub.
+        /// </summary>
         IGroupManager Groups { get; }
     }
 }

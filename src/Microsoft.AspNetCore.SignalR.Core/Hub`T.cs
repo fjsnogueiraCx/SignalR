@@ -5,10 +5,17 @@ using Microsoft.AspNetCore.SignalR.Internal;
 
 namespace Microsoft.AspNetCore.SignalR
 {
+    /// <summary>
+    /// A base class for a strongly typed SignalR hub.
+    /// </summary>
+    /// <typeparam name="T">The type of client.</typeparam>
     public class Hub<T> : Hub where T : class
     {
         private IHubCallerClients<T> _clients;
 
+        /// <summary>
+        /// Gets or sets the strongly typed clients caller.
+        /// </summary>
         public new IHubCallerClients<T> Clients
         {
             get

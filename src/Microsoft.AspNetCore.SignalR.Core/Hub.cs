@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.SignalR
 {
+    /// <summary>
+    /// A base class for a SignalR hub.
+    /// </summary>
     public class Hub : IDisposable
     {
         private bool _disposed;
@@ -13,6 +16,9 @@ namespace Microsoft.AspNetCore.SignalR
         private HubCallerContext _context;
         private IGroupManager _groups;
 
+        /// <summary>
+        /// Gets or sets the clients caller.
+        /// </summary>
         public IHubCallerClients Clients
         {
             get
@@ -27,6 +33,9 @@ namespace Microsoft.AspNetCore.SignalR
             }
         }
 
+        /// <summary>
+        /// Gets or sets the hub caller context.
+        /// </summary>
         public HubCallerContext Context
         {
             get
@@ -41,6 +50,9 @@ namespace Microsoft.AspNetCore.SignalR
             }
         }
 
+        /// <summary>
+        /// Gets or sets the group manager.
+        /// </summary>
         public IGroupManager Groups
         {
             get
@@ -55,20 +67,34 @@ namespace Microsoft.AspNetCore.SignalR
             }
         }
 
+        /// <summary>
+        /// Called when the hub is connected to.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> that on completion indicates OnConnectedAsync is finished.</returns>
         public virtual Task OnConnectedAsync()
         {
             return Task.CompletedTask;
         }
 
+        /// <summary>
+        /// Called when the hub is disconnected from.
+        /// </summary>
+        /// <returns>A <see cref="Task"/> that on completion indicates OnDisconnectedAsync is finished.</returns>
         public virtual Task OnDisconnectedAsync(Exception exception)
         {
             return Task.CompletedTask;
         }
 
+        /// <summary>
+        /// Releases all resources currently used by this <see cref="Hub"/> instance.
+        /// </summary>
+        /// <param name="disposing"><c>true</c> if this method is being invoked by the <see cref="Dispose()"/> method,
+        /// otherwise <c>false</c>.</param>
         protected virtual void Dispose(bool disposing)
         {
         }
 
+        /// <inheritdoc />
         public void Dispose()
         {
             if (_disposed)

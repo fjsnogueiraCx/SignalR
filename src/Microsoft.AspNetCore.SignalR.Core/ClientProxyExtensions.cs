@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.SignalR
 {
+    /// <summary>
+    /// Extensions methods for <see cref="IClientProxy"/>.
+    /// </summary>
     public static class ClientProxyExtensions
     {
         /// <summary>
