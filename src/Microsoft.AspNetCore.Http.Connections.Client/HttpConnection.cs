@@ -151,7 +151,7 @@ namespace Microsoft.AspNetCore.Http.Connections.Client
         /// <summary>
         /// Starts the connection.
         /// </summary>
-        /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates the connection is started.</returns>
         /// <remarks>
         /// A connection cannot be restarted after it has stopped. To restart a connection
@@ -166,7 +166,7 @@ namespace Microsoft.AspNetCore.Http.Connections.Client
         /// Starts the connection using the specified transfer format.
         /// </summary>
         /// <param name="transferFormat">The transfer format the connection should use.</param>
-        /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates the connection is started.</returns>
         /// <remarks>
         /// A connection cannot be restarted after it has stopped. To restart a connection

@@ -88,7 +88,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         /// <summary>
         /// Starts a connection to the server.
         /// </summary>
-        /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates the connection is started.</returns>
         public async Task StartAsync(CancellationToken cancellationToken = default)
         {
@@ -99,7 +99,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         /// <summary>
         /// Stops a connection to the server.
         /// </summary>
-        /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates the connection is stopped.</returns>
         public async Task StopAsync(CancellationToken cancellationToken = default)
         {
@@ -156,7 +156,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         /// <param name="methodName">The hub method name.</param>
         /// <param name="returnType">The hub return type.</param>
         /// <param name="args">The hub arguments.</param>
-        /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>
         /// A <see cref="Task"/> that on completion indicates the hub method stream is open.
         /// The value of the task is a <see cref="ChannelReader{T}"/> for the streamed hub method values.
@@ -170,7 +170,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         /// <param name="methodName">The hub method name.</param>
         /// <param name="returnType">The hub return type.</param>
         /// <param name="args">The hub arguments.</param>
-        /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>
         /// A <see cref="Task"/> that on completion indicates the hub method invocation is complete.
         /// The value of the task is a <see cref="object"/> for the hub method return value.
@@ -184,7 +184,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         /// </summary>
         /// <param name="methodName">The hub method name.</param>
         /// <param name="args">The hub arguments.</param>
-        /// <param name="cancellationToken">A <see cref="CancellationToken" /> to observe while waiting for the task to complete.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates the hub method send is complete.</returns>
         public async Task SendCoreAsync(string methodName, object[] args, CancellationToken cancellationToken = default) =>
             await SendCoreAsyncCore(methodName, args, cancellationToken).ForceAsync();

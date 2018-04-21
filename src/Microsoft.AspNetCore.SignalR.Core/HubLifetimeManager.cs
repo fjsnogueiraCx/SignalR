@@ -33,6 +33,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// </summary>
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
         public abstract Task SendAllAsync(string methodName, object[] args, CancellationToken cancellationToken = default);
 
@@ -42,6 +43,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
         /// <param name="excludedConnectionIds">A collection of connection IDs to exclude.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
         public abstract Task SendAllExceptAsync(string methodName, object[] args, IReadOnlyList<string> excludedConnectionIds, CancellationToken cancellationToken = default);
 
@@ -51,6 +53,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="connectionId">The connection ID.</param>
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
         public abstract Task SendConnectionAsync(string connectionId, string methodName, object[] args, CancellationToken cancellationToken = default);
 
@@ -60,6 +63,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="connectionIds">The connection IDs.</param>
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
         public abstract Task SendConnectionsAsync(IReadOnlyList<string> connectionIds, string methodName, object[] args, CancellationToken cancellationToken = default);
 
@@ -69,6 +73,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="groupName">The group name.</param>
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
         public abstract Task SendGroupAsync(string groupName, string methodName, object[] args, CancellationToken cancellationToken = default);
 
@@ -78,6 +83,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="groupNames">The group names.</param>
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
         public abstract Task SendGroupsAsync(IReadOnlyList<string> groupNames, string methodName, object[] args, CancellationToken cancellationToken = default);
 
@@ -88,6 +94,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
         /// <param name="excludedConnectionIds">A collection of connection IDs to exclude.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
         public abstract Task SendGroupExceptAsync(string groupName, string methodName, object[] args, IReadOnlyList<string> excludedConnectionIds, CancellationToken cancellationToken = default);
 
@@ -97,6 +104,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="userId">The user ID.</param>
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
         public abstract Task SendUserAsync(string userId, string methodName, object[] args, CancellationToken cancellationToken = default);
 
@@ -106,6 +114,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="userIds">The user IDs.</param>
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
         public abstract Task SendUsersAsync(IReadOnlyList<string> userIds, string methodName, object[] args, CancellationToken cancellationToken = default);
 
@@ -114,6 +123,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// </summary>
         /// <param name="connectionId">The connection ID to add to a group.</param>
         /// <param name="groupName">The group name.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates the connection has been added to the group.</returns>
         public abstract Task AddToGroupAsync(string connectionId, string groupName, CancellationToken cancellationToken = default);
 
@@ -122,6 +132,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// </summary>
         /// <param name="connectionId">The connection ID to remove from a group.</param>
         /// <param name="groupName">The group name.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates the connection has been removed from the group.</returns>
         public abstract Task RemoveFromGroupAsync(string connectionId, string groupName, CancellationToken cancellationToken = default);
     }

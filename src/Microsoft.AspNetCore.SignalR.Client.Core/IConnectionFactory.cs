@@ -16,6 +16,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         /// Creates a new connection to a SignalR server using the specified <see cref="TransferFormat"/>.
         /// </summary>
         /// <param name="transferFormat">The transfer format the connection should use.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>
         /// A <see cref="Task"/> that on completion indicates the connection is complete.
         /// The value of the task is a <see cref="ConnectionContext"/> for the new connection.

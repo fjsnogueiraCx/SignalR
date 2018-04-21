@@ -16,6 +16,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// </summary>
         /// <param name="connectionId">The connection ID to add to a group.</param>
         /// <param name="groupName">The group name.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates the connection has been added to the group.</returns>
         Task AddToGroupAsync(string connectionId, string groupName, CancellationToken cancellationToken = default);
 
@@ -24,6 +25,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// </summary>
         /// <param name="connectionId">The connection ID to remove from a group.</param>
         /// <param name="groupName">The group name.</param>
+        /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates the connection has been removed from the group.</returns>
         Task RemoveFromGroupAsync(string connectionId, string groupName, CancellationToken cancellationToken = default);
     }
