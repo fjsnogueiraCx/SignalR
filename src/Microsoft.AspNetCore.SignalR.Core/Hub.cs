@@ -70,7 +70,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <summary>
         /// Called when the hub is connected to.
         /// </summary>
-        /// <returns>A <see cref="Task"/> that on completion indicates OnConnectedAsync is finished.</returns>
+        /// <returns>A <see cref="Task"/> that represents the asynchronous connect.</returns>
         public virtual Task OnConnectedAsync()
         {
             return Task.CompletedTask;
@@ -79,7 +79,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <summary>
         /// Called when the hub is disconnected from.
         /// </summary>
-        /// <returns>A <see cref="Task"/> that on completion indicates OnDisconnectedAsync is finished.</returns>
+        /// <returns>A <see cref="Task"/> that represents the asynchronous disconnect.</returns>
         public virtual Task OnDisconnectedAsync(Exception exception)
         {
             return Task.CompletedTask;

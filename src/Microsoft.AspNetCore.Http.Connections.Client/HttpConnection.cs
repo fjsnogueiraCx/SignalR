@@ -152,7 +152,7 @@ namespace Microsoft.AspNetCore.Http.Connections.Client
         /// Starts the connection.
         /// </summary>
         /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
-        /// <returns>A <see cref="Task"/> that on completion indicates the connection is started.</returns>
+        /// <returns>A <see cref="Task"/> that represents the asynchronous start.</returns>
         /// <remarks>
         /// A connection cannot be restarted after it has stopped. To restart a connection
         /// a new instance should be created using the same options.
@@ -167,7 +167,7 @@ namespace Microsoft.AspNetCore.Http.Connections.Client
         /// </summary>
         /// <param name="transferFormat">The transfer format the connection should use.</param>
         /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
-        /// <returns>A <see cref="Task"/> that on completion indicates the connection is started.</returns>
+        /// <returns>A <see cref="Task"/> that represents the asynchronous start.</returns>
         /// <remarks>
         /// A connection cannot be restarted after it has stopped. To restart a connection
         /// a new instance should be created using the same options.
@@ -214,7 +214,7 @@ namespace Microsoft.AspNetCore.Http.Connections.Client
         /// <summary>
         /// Disposes the connection.
         /// </summary>
-        /// <returns>A <see cref="Task"/> that on completion indicates the connection is disposed.</returns>
+        /// <returns>A <see cref="Task"/> that represents the asynchronous dispose.</returns>
         /// <remarks>
         /// A connection cannot be restarted after it has stopped. To restart a connection
         /// a new instance should be created using the same options.

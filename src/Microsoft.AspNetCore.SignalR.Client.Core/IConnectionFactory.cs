@@ -18,8 +18,8 @@ namespace Microsoft.AspNetCore.SignalR.Client
         /// <param name="transferFormat">The transfer format the connection should use.</param>
         /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>
-        /// A <see cref="Task"/> that on completion indicates the connection is complete.
-        /// The value of the task is a <see cref="ConnectionContext"/> for the new connection.
+        /// A <see cref="Task{TResult}"/> that represents the asynchronous connect.
+        /// The <see cref="Task{TResult}.Result"/> property returns a <see cref="ConnectionContext"/> for the new connection.
         /// </returns>
         Task<ConnectionContext> ConnectAsync(TransferFormat transferFormat, CancellationToken cancellationToken = default);
 
@@ -29,7 +29,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         /// Disposes the specified <see cref="ConnectionContext"/>.
         /// </summary>
         /// <param name="connection">The connection to dispose.</param>
-        /// <returns>A <see cref="Task"/> that on completion indicates the connection is disposed.</returns>
+        /// <returns>A <see cref="Task"/> that represents the asynchronous dispose.</returns>
         Task DisposeAsync(ConnectionContext connection);
     }
 }

@@ -92,7 +92,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         /// Starts a connection to the server.
         /// </summary>
         /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
-        /// <returns>A <see cref="Task"/> that on completion indicates the connection is started.</returns>
+        /// <returns>A <see cref="Task"/> that represents the asynchronous start.</returns>
         public async Task StartAsync(CancellationToken cancellationToken = default)
         {
             CheckDisposed();
@@ -103,7 +103,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         /// Stops a connection to the server.
         /// </summary>
         /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
-        /// <returns>A <see cref="Task"/> that on completion indicates the connection is stopped.</returns>
+        /// <returns>A <see cref="Task"/> that represents the asynchronous stop.</returns>
         public async Task StopAsync(CancellationToken cancellationToken = default)
         {
             CheckDisposed();
@@ -115,7 +115,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         /// <summary>
         /// Disposes the <see cref="HubConnection"/>.
         /// </summary>
-        /// <returns>A <see cref="Task"/> that on completion indicates the connection is disposed.</returns>
+        /// <returns>A <see cref="Task"/> that represents the asynchronous dispose.</returns>
         public async Task DisposeAsync()
         {
             if (!_disposed)
@@ -164,8 +164,8 @@ namespace Microsoft.AspNetCore.SignalR.Client
         /// <param name="args">The arguments used to invoke the server method.</param>
         /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>
-        /// A <see cref="Task"/> that on completion indicates the hub method stream is open.
-        /// The value of the task is a <see cref="ChannelReader{T}"/> for the streamed hub method values.
+        /// A <see cref="Task{TResult}"/> that represents the asynchronous invoke.
+        /// The <see cref="Task{TResult}.Result"/> property returns a <see cref="ChannelReader{T}"/> for the streamed hub method values.
         /// </returns>
         /// <remarks>
         /// This is a low level method for invoking a streaming hub method on the server. Using an <see cref="HubConnectionExtensions"/> extension method is recommended.
@@ -181,8 +181,8 @@ namespace Microsoft.AspNetCore.SignalR.Client
         /// <param name="args">The arguments used to invoke the server method.</param>
         /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>
-        /// A <see cref="Task"/> that on completion indicates the hub method invocation is complete.
-        /// The value of the task is a <see cref="object"/> for the hub method return value.
+        /// A <see cref="Task{TResult}"/> that represents the asynchronous invoke.
+        /// The <see cref="Task{TResult}.Result"/> property returns an <see cref="object"/> for the hub method return value.
         /// </returns>
         /// <remarks>
         /// This is a low level method for invoking a hub method on the server. Using an <see cref="HubConnectionExtensions"/> extension method is recommended.
@@ -197,7 +197,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         /// <param name="methodName">The name of the server method to invoke.</param>
         /// <param name="args">The arguments used to invoke the server method.</param>
         /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
-        /// <returns>A <see cref="Task"/> that on completion indicates the hub method send is complete.</returns>
+        /// <returns>A <see cref="Task"/> that represents the asynchronous invoke.</returns>
         /// <remarks>
         /// This is a low level method for invoking a hub method on the server. Using an <see cref="HubConnectionExtensions"/> extension method is recommended.
         /// </remarks>
