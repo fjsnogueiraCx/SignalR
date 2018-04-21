@@ -19,7 +19,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 namespace Microsoft.AspNetCore.Http.Connections.Client
 {
     /// <summary>
-    /// Used to make a connection over HTTP to a SignalR server.
+    /// Used to make a connection to an ASP.NET Core ConnectionHandler using an HTTP-based transport.
     /// </summary>
     public partial class HttpConnection : ConnectionContext, IConnectionInherentKeepAliveFeature
     {
