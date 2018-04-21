@@ -9,7 +9,7 @@ namespace Microsoft.AspNetCore.SignalR
     /// A base class for a strongly typed SignalR hub.
     /// </summary>
     /// <typeparam name="T">The type of client.</typeparam>
-    public class Hub<T> : Hub where T : class
+    public abstract class Hub<T> : Hub where T : class
     {
         private IHubCallerClients<T> _clients;
 

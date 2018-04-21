@@ -157,9 +157,9 @@ namespace Microsoft.AspNetCore.Http.Connections.Client
         /// A connection cannot be restarted after it has stopped. To restart a connection
         /// a new instance should be created using the same options.
         /// </remarks>
-        public async Task StartAsync()
+        public async Task StartAsync(CancellationToken cancellationToken = default)
         {
-            await StartAsync(TransferFormat.Binary);
+            await StartAsync(TransferFormat.Binary, cancellationToken);
         }
 
         /// <summary>
@@ -172,7 +172,7 @@ namespace Microsoft.AspNetCore.Http.Connections.Client
         /// A connection cannot be restarted after it has stopped. To restart a connection
         /// a new instance should be created using the same options.
         /// </remarks>
-        public async Task StartAsync(TransferFormat transferFormat)
+        public async Task StartAsync(TransferFormat transferFormat, CancellationToken cancellationToken = default)
         {
             await StartAsyncCore(transferFormat).ForceAsync();
         }

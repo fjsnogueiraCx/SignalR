@@ -9,7 +9,7 @@ namespace Microsoft.AspNetCore.SignalR
     /// <summary>
     /// A base class for a SignalR hub.
     /// </summary>
-    public class Hub : IDisposable
+    public abstract class Hub : IDisposable
     {
         private bool _disposed;
         private IHubCallerClients _clients;

@@ -144,6 +144,15 @@ namespace Microsoft.AspNetCore.SignalR.Tests
         }
 
         [Fact]
+        public void FailsToLoadInvalidTypedHubClient()
+        {
+            var serviceProvider = HubConnectionHandlerTestUtils.CreateServiceProvider();
+            var ex = Assert.Throws<InvalidOperationException>(() =>
+                serviceProvider.GetRequiredService<IHubContext<SimpleVoidReturningTypedHub, IVoidReturningTypedHubClient>>());
+            Assert.Equal($"Cannot generate proxy implementation for '{typeof(IVoidReturningTypedHubClient).FullName}.{nameof(IVoidReturningTypedHubClient.Send)}'. All client proxy methods must return '{typeof(Task).FullName}'.", ex.Message);
+        }
+
+        [Fact]
         public async Task HandshakeFailureFromUnknownProtocolSendsResponseWithError()
         {
             var hubProtocolMock = new Mock<IHubProtocol>();
@@ -958,6 +967,22 @@ namespace Microsoft.AspNetCore.SignalR.Tests
             }
         }
 
+        [Fact]
+        public async Task FailsToInitializeInvalidTypedHub()
+        {
+            var connectionHandler = HubConnectionHandlerTestUtils.GetHubConnectionHandler(typeof(SimpleVoidReturningTypedHub));
+
+            using (var firstClient = new TestClient())
+            {
+                // ConnectAsync returns a Task<Task> and it's the INNER Task that will be faulted.
+                var connectionTask = await firstClient.ConnectAsync(connectionHandler);
+
+                // We should get a close frame now
+                var close = Assert.IsType<CloseMessage>(await firstClient.ReadAsync());
+                Assert.Equal("Connection closed with an error.", close.Error);
+            }
+        }
+
         [Theory]
         [MemberData(nameof(HubTypes))]
         public async Task SendToAllExcept(Type hubType)
@@ -1706,6 +1731,57 @@ namespace Microsoft.AspNetCore.SignalR.Tests
             }
         }
 
+        [Fact]
+        public async Task ConnectionUserIdIsAssignedByUserIdProvider()
+        {
+            var firstRequest = true;
+            var userIdProvider = new TestUserIdProvider(c =>
+            {
+                if (firstRequest)
+                {
+                    firstRequest = false;
+                    return "client1";
+                }
+                else
+                {
+                    return "client2";
+                }
+            });
+            var serviceProvider = HubConnectionHandlerTestUtils.CreateServiceProvider(services =>
+            {
+                services.AddSingleton<IUserIdProvider>(userIdProvider);
+            });
+            var connectionHandler = serviceProvider.GetService<HubConnectionHandler<MethodHub>>();
+
+            using (var client1 = new TestClient())
+            using (var client2 = new TestClient())
+            {
+                var connectionHandlerTask1 = await client1.ConnectAsync(connectionHandler);
+                var connectionHandlerTask2 = await client2.ConnectAsync(connectionHandler);
+
+                await client1.Connected.OrTimeout();
+                await client2.Connected.OrTimeout();
+
+                await client2.SendInvocationAsync(nameof(MethodHub.SendToMultipleUsers), new[] { "client1" }, "Hi!").OrTimeout();
+
+                var message = (InvocationMessage)await client1.ReadAsync().OrTimeout();
+
+                Assert.Equal("Send", message.Target);
+                Assert.Collection(message.Arguments, arg => Assert.Equal("Hi!", arg));
+
+                client1.Dispose();
+                client2.Dispose();
+
+                await connectionHandlerTask1.OrTimeout();
+                await connectionHandlerTask2.OrTimeout();
+
+                // Read the completion, then we should have nothing left in client2's queue
+                Assert.IsType<CompletionMessage>(client2.TryRead());
+                Assert.IsType<CloseMessage>(client2.TryRead());
+                Assert.Null(client2.TryRead());
+            }
+        }
+
         private class CustomFormatter : IFormatterResolver
         {
             public IMessagePackFormatter<T> GetFormatter<T>()
@@ -2140,6 +2216,18 @@ namespace Microsoft.AspNetCore.SignalR.Tests
         public class TestHttpContextFeature : IHttpContextFeature
         {
             public HttpContext HttpContext { get; set; }
+        }
+
+        private class TestUserIdProvider : IUserIdProvider
+        {
+            private readonly Func<HubConnectionContext, string> _getUserId;
+
+            public TestUserIdProvider(Func<HubConnectionContext, string> getUserId)
+            {
+                _getUserId = getUserId;
+            }
+
+            public string GetUserId(HubConnectionContext connection) => _getUserId(connection);
         }
     }
 }

@@ -2,6 +2,7 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Microsoft.AspNetCore.SignalR
@@ -11,6 +12,7 @@ namespace Microsoft.AspNetCore.SignalR
     /// </summary>
     public abstract class HubLifetimeManager<THub> where THub : Hub
     {
+        // Called by the framework and not something we'd cancel, so it doesn't take a cancellation token
         /// <summary>
         /// Called when a connection is started.
         /// </summary>
@@ -18,6 +20,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <returns>A <see cref="Task"/> that on completion indicates OnConnectedAsync is finished.</returns>
         public abstract Task OnConnectedAsync(HubConnectionContext connection);
 
+        // Called by the framework and not something we'd cancel, so it doesn't take a cancellation token
         /// <summary>
         /// Called when a connection is finished.
         /// </summary>
@@ -31,7 +34,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
-        public abstract Task SendAllAsync(string methodName, object[] args);
+        public abstract Task SendAllAsync(string methodName, object[] args, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send an invocation message to all hub connections excluding the specified connections.
@@ -40,7 +43,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="args">The invocation arguments.</param>
         /// <param name="excludedConnectionIds">A collection of connection IDs to exclude.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
-        public abstract Task SendAllExceptAsync(string methodName, object[] args, IReadOnlyList<string> excludedConnectionIds);
+        public abstract Task SendAllExceptAsync(string methodName, object[] args, IReadOnlyList<string> excludedConnectionIds, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send an invocation message to the specified connection.
@@ -49,7 +52,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
-        public abstract Task SendConnectionAsync(string connectionId, string methodName, object[] args);
+        public abstract Task SendConnectionAsync(string connectionId, string methodName, object[] args, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send an invocation message to the specified connections.
@@ -58,7 +61,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
-        public abstract Task SendConnectionsAsync(IReadOnlyList<string> connectionIds, string methodName, object[] args);
+        public abstract Task SendConnectionsAsync(IReadOnlyList<string> connectionIds, string methodName, object[] args, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send an invocation message to the specified group.
@@ -67,7 +70,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
-        public abstract Task SendGroupAsync(string groupName, string methodName, object[] args);
+        public abstract Task SendGroupAsync(string groupName, string methodName, object[] args, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send an invocation message to the specified groups.
@@ -76,7 +79,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
-        public abstract Task SendGroupsAsync(IReadOnlyList<string> groupNames, string methodName, object[] args);
+        public abstract Task SendGroupsAsync(IReadOnlyList<string> groupNames, string methodName, object[] args, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send an invocation message to the specified group excluding the specified connections.
@@ -86,7 +89,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="args">The invocation arguments.</param>
         /// <param name="excludedConnectionIds">A collection of connection IDs to exclude.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
-        public abstract Task SendGroupExceptAsync(string groupName, string methodName, object[] args, IReadOnlyList<string> excludedConnectionIds);
+        public abstract Task SendGroupExceptAsync(string groupName, string methodName, object[] args, IReadOnlyList<string> excludedConnectionIds, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send an invocation message to the specified user.
@@ -95,7 +98,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
-        public abstract Task SendUserAsync(string userId, string methodName, object[] args);
+        public abstract Task SendUserAsync(string userId, string methodName, object[] args, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Send an invocation message to the specified users.
@@ -104,7 +107,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates send is finished.</returns>
-        public abstract Task SendUsersAsync(IReadOnlyList<string> userIds, string methodName, object[] args);
+        public abstract Task SendUsersAsync(IReadOnlyList<string> userIds, string methodName, object[] args, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Adds a connection to the specified group.
@@ -112,7 +115,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="connectionId">The connection ID to add to a group.</param>
         /// <param name="groupName">The group name.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates the connection has been added to the group.</returns>
-        public abstract Task AddToGroupAsync(string connectionId, string groupName);
+        public abstract Task AddToGroupAsync(string connectionId, string groupName, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Removes a connection from the specified group.
@@ -120,6 +123,6 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="connectionId">The connection ID to remove from a group.</param>
         /// <param name="groupName">The group name.</param>
         /// <returns>A <see cref="Task"/> that on completion indicates the connection has been removed from the group.</returns>
-        public abstract Task RemoveFromGroupAsync(string connectionId, string groupName);
+        public abstract Task RemoveFromGroupAsync(string connectionId, string groupName, CancellationToken cancellationToken = default);
     }
 }

@@ -2,17 +2,11 @@
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
 import { HandshakeProtocol, HandshakeRequestMessage, HandshakeResponseMessage } from "./HandshakeProtocol";
-import { HttpConnection, IHttpConnectionOptions } from "./HttpConnection";
 import { IConnection } from "./IConnection";
-import { CancelInvocationMessage, CompletionMessage, HubMessage, IHubProtocol, InvocationMessage, MessageType, StreamInvocationMessage, StreamItemMessage } from "./IHubProtocol";
+import { CancelInvocationMessage, CompletionMessage, IHubProtocol, InvocationMessage, MessageType, StreamInvocationMessage, StreamItemMessage } from "./IHubProtocol";
 import { ILogger, LogLevel } from "./ILogger";
-import { JsonHubProtocol } from "./JsonHubProtocol";
-import { NullLogger } from "./Loggers";
 import { IStreamResult } from "./Stream";
-import { TextMessageFormat } from "./TextMessageFormat";
-import { Arg, createLogger, Subject } from "./Utils";
-
-export { JsonHubProtocol };
+import { Arg, Subject } from "./Utils";
 
 const DEFAULT_TIMEOUT_IN_MS: number = 30 * 1000;
 
@@ -30,7 +24,16 @@ export class HubConnection {
 
     public serverTimeoutInMilliseconds: number;
 
-    constructor(connection: IConnection, logger: ILogger, protocol: IHubProtocol) {
+    /** @internal */
+    // Using a public static factory method means we can have a private constructor and an _internal_
+    // create method that can be used by HubConnectionBuilder. An "internal" constructor would just
+    // be stripped away and the '.d.ts' file would have no constructor, which is interpreted as a
+    // public parameter-less constructor.
+    public static create(connection: IConnection, logger: ILogger, protocol: IHubProtocol): HubConnection {
+        return new HubConnection(connection, logger, protocol);
+    }
+
+    private constructor(connection: IConnection, logger: ILogger, protocol: IHubProtocol) {
         Arg.isRequired(connection, "connection");
         Arg.isRequired(logger, "logger");
         Arg.isRequired(protocol, "protocol");

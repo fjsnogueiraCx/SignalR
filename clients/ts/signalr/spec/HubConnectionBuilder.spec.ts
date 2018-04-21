@@ -1,15 +1,15 @@
 // Copyright (c) .NET Foundation. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
 
-import { HubConnectionBuilder } from "../src/HubConnectionBuilder";
-
-import { HubConnection } from "../src";
 import { HttpRequest, HttpResponse } from "../src/HttpClient";
-import { IHttpConnectionOptions } from "../src/HttpConnection";
+import { HubConnection } from "../src/HubConnection";
+import { HubConnectionBuilder } from "../src/HubConnectionBuilder";
+import { IHttpConnectionOptions } from "../src/IHttpConnectionOptions";
 import { HubMessage, IHubProtocol } from "../src/IHubProtocol";
 import { ILogger, LogLevel } from "../src/ILogger";
-import { TransferFormat, HttpTransportType } from "../src/ITransport";
+import { HttpTransportType, TransferFormat } from "../src/ITransport";
 import { NullLogger } from "../src/Loggers";
+
 import { TestHttpClient } from "./TestHttpClient";
 import { asyncit as it, PromiseSource } from "./Utils";
 
@@ -123,14 +123,13 @@ describe("HubConnectionBuilder", () => {
         await closed;
     });
 
-
     it("allows logger to be replaced", async () => {
         let loggedMessages = 0;
         const logger = {
             log() {
                 loggedMessages += 1;
-            }
-        }
+            },
+        };
         const connection = createConnectionBuilder(logger)
             .withUrl("http://example.com")
             .build();
