@@ -3,6 +3,9 @@
 
 namespace Microsoft.AspNetCore.SignalR
 {
+    /// <summary>
+    /// A base class for a dynamic SignalR hub.
+    /// </summary>
     public abstract class DynamicHub : Hub
     {
         private DynamicHubClients _clients;

@@ -20,7 +20,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <summary>
         /// Releases the specified hub.
         /// </summary>
-        /// <param name="hub">The hub.</param>
+        /// <param name="hub">The hub to release.</param>
         void Release(THub hub);
     }
 }
