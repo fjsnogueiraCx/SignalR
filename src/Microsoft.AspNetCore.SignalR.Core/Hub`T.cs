@@ -14,7 +14,7 @@ namespace Microsoft.AspNetCore.SignalR
         private IHubCallerClients<T> _clients;
 
         /// <summary>
-        /// Gets or sets the strongly typed clients caller.
+        /// Gets or sets a <typeparamref name="T"/> that can be used to invoke methods on the clients connected to this hub.
         /// </summary>
         public new IHubCallerClients<T> Clients
         {

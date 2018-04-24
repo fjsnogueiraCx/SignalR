@@ -17,7 +17,7 @@ using Microsoft.Extensions.Options;
 namespace Microsoft.AspNetCore.SignalR.Protocol
 {
     /// <summary>
-    /// A MessagePack protocol for communicating with SignalR hubs.
+    /// Implements the SignalR Hub Protocol using MessagePack.
     /// </summary>
     public class MessagePackHubProtocol : IHubProtocol
     {

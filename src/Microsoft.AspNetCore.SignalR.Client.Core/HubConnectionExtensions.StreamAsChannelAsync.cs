@@ -9,7 +9,7 @@ using System.Threading.Channels;
 namespace Microsoft.AspNetCore.SignalR.Client
 {
     /// <summary>
-    /// Extensions methods for <see cref="HubConnectionExtensions"/>.
+    /// Extension methods for <see cref="HubConnectionExtensions"/>.
     /// </summary>
     public static partial class HubConnectionExtensions
     {

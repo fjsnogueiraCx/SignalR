@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace Microsoft.AspNetCore.SignalR.Client
 {
     /// <summary>
-    /// Extensions methods for <see cref="IHubConnectionBuilder"/>.
+    /// Extension methods for <see cref="IHubConnectionBuilder"/>.
     /// </summary>
     public static class HubConnectionBuilderExtensions
     {

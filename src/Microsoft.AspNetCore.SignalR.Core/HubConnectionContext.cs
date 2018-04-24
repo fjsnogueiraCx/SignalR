@@ -37,9 +37,9 @@ namespace Microsoft.AspNetCore.SignalR
         /// <summary>
         /// Initializes a new instance of the <see cref="HubConnectionContext"/> class.
         /// </summary>
-        /// <param name="connectionContext"></param>
-        /// <param name="keepAliveInterval"></param>
-        /// <param name="loggerFactory"></param>
+        /// <param name="connectionContext">The underlying <see cref="ConnectionContext"/>.</param>
+        /// <param name="keepAliveInterval">The keep alive interval.</param>
+        /// <param name="loggerFactory">The logger factory.</param>
         public HubConnectionContext(ConnectionContext connectionContext, TimeSpan keepAliveInterval, ILoggerFactory loggerFactory)
         {
             _connectionContext = connectionContext;
@@ -64,7 +64,7 @@ namespace Microsoft.AspNetCore.SignalR
         public virtual ClaimsPrincipal User => Features.Get<IConnectionUserFeature>()?.User;
 
         /// <summary>
-        /// Gets the collection of HTTP features available on this connection.
+        /// Gets the collection of features available on this connection.
         /// </summary>
         public virtual IFeatureCollection Features => _connectionContext.Features;
 

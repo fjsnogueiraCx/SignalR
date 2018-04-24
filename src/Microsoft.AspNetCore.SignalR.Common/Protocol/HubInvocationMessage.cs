@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace Microsoft.AspNetCore.SignalR.Protocol
 {
     /// <summary>
-    /// A base class for hub invocation messages.
+    /// A base class for hub messages related to a specific invocation.
     /// </summary>
     public abstract class HubInvocationMessage : HubMessage
     {

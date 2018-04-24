@@ -28,11 +28,11 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
         TransferFormat TransferFormat { get; }
 
         /// <summary>
-        /// Creates a new <see cref="HubMessage"/> using the specified bytes and binder.
+        /// Creates a new <see cref="HubMessage"/> from the specified serialized representation, and using the specified binder.
         /// </summary>
-        /// <param name="input">The byte representation of the message.</param>
+        /// <param name="input">The serialized representation of the message.</param>
         /// <param name="binder">The binder used to parse the message.</param>
-        /// <param name="message">When this method returns, contains the parsed message.</param>
+        /// <param name="message">When this method returns <c>true</c>, contains the parsed message.</param>
         /// <returns>A value that is <c>true</c> if the <see cref="HubMessage"/> was successfully parsed; otherwise, <c>false</c>.</returns>
         bool TryParseMessage(ref ReadOnlySequence<byte> input, IInvocationBinder binder, out HubMessage message);
 
@@ -44,10 +44,10 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
         void WriteMessage(HubMessage message, IBufferWriter<byte> output);
 
         /// <summary>
-        /// Converts the specified <see cref="HubMessage"/> to its bytes.
+        /// Converts the specified <see cref="HubMessage"/> to its serialized representation.
         /// </summary>
         /// <param name="message">The message to convert.</param>
-        /// <returns>The byte representation of the message.</returns>
+        /// <returns>The serialized representation of the message.</returns>
         ReadOnlyMemory<byte> GetMessageBytes(HubMessage message);
 
         /// <summary>

@@ -67,10 +67,13 @@ namespace Microsoft.AspNetCore.Http.Connections.Client
 
         /// <inheritdoc />
         public override IFeatureCollection Features { get; } = new FeatureCollection();
+
         /// <inheritdoc />
         public override string ConnectionId { get; set; }
+
         /// <inheritdoc />
         public override IDictionary<object, object> Items { get; set; } = new ConnectionItems();
+
         /// <inheritdoc />
         bool IConnectionInherentKeepAliveFeature.HasInherentKeepAlive => _hasInherentKeepAlive;
 
@@ -86,7 +89,7 @@ namespace Microsoft.AspNetCore.Http.Connections.Client
         /// Initializes a new instance of the <see cref="HttpConnection"/> class.
         /// </summary>
         /// <param name="url">The URL to connect to.</param>
-        /// <param name="transports">The transport types to use.</param>
+        /// <param name="transports">A bitmask comprised of one or more <see cref="HttpTransportType"/> that specify what transports the client should use.</param>
         public HttpConnection(Uri url, HttpTransportType transports)
             : this(url, transports, loggerFactory: null)
         {
@@ -96,7 +99,7 @@ namespace Microsoft.AspNetCore.Http.Connections.Client
         /// Initializes a new instance of the <see cref="HttpConnection"/> class.
         /// </summary>
         /// <param name="url">The URL to connect to.</param>
-        /// <param name="transports">The transport types to use.</param>
+        /// <param name="transports">A bitmask comprised of one or more <see cref="HttpTransportType"/> that specify what transports the client should use.</param>
         /// <param name="loggerFactory">The logger factory.</param>
         public HttpConnection(Uri url, HttpTransportType transports, ILoggerFactory loggerFactory)
             : this(CreateHttpOptions(url, transports), loggerFactory)

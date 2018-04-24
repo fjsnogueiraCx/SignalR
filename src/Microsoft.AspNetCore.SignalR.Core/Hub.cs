@@ -17,7 +17,7 @@ namespace Microsoft.AspNetCore.SignalR
         private IGroupManager _groups;
 
         /// <summary>
-        /// Gets or sets the clients caller.
+        /// Gets or sets an object that can be used to invoke methods on the clients connected to this hub.
         /// </summary>
         public IHubCallerClients Clients
         {
@@ -68,7 +68,7 @@ namespace Microsoft.AspNetCore.SignalR
         }
 
         /// <summary>
-        /// Called when the hub is connected to.
+        /// Called when a new connection is established with the hub.
         /// </summary>
         /// <returns>A <see cref="Task"/> that represents the asynchronous connect.</returns>
         public virtual Task OnConnectedAsync()
@@ -77,7 +77,7 @@ namespace Microsoft.AspNetCore.SignalR
         }
 
         /// <summary>
-        /// Called when the hub is disconnected from.
+        /// Called when a connection with the hub is terminated.
         /// </summary>
         /// <returns>A <see cref="Task"/> that represents the asynchronous disconnect.</returns>
         public virtual Task OnDisconnectedAsync(Exception exception)

@@ -12,7 +12,7 @@ using Microsoft.Extensions.Options;
 namespace Microsoft.AspNetCore.SignalR.Client
 {
     /// <summary>
-    /// A factory for creating <see cref="HttpConnection"/>.
+    /// A factory for creating <see cref="HttpConnection"/> instances.
     /// </summary>
     public class HttpConnectionFactory : IConnectionFactory
     {

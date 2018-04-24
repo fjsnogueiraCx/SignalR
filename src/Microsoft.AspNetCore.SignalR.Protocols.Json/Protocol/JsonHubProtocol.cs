@@ -17,7 +17,7 @@ using Newtonsoft.Json.Serialization;
 namespace Microsoft.AspNetCore.SignalR.Protocol
 {
     /// <summary>
-    /// A JSON protocol for communicating with SignalR hubs.
+    /// Implements the SignalR Hub Protocol using JSON.
     /// </summary>
     public class JsonHubProtocol : IHubProtocol
     {
@@ -34,7 +34,7 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
         private static readonly int ProtocolVersion = 1;
 
         /// <summary>
-        /// Gets the serializer used to serialize payloads to and from JSON.
+        /// Gets the serializer used to serialize invocation arguments and return values.
         /// </summary>
         public JsonSerializer PayloadSerializer { get; }
 

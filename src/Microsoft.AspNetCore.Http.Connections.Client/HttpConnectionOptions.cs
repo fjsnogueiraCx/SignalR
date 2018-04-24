@@ -71,7 +71,7 @@ namespace Microsoft.AspNetCore.Http.Connections.Client
         public Uri Url { get; set; }
 
         /// <summary>
-        /// Gets or sets the <see cref="HttpTransportType"/> used to send HTTP requests.
+        /// Gets or sets a bitmask comprised of one or more <see cref="HttpTransportType"/> that specify what transports the client should use to send HTTP requests.
         /// </summary>
         public HttpTransportType Transports { get; set; }
 
@@ -79,7 +79,7 @@ namespace Microsoft.AspNetCore.Http.Connections.Client
         /// Gets or sets a value indicating whether negotiation is skipped when connecting to the server.
         /// </summary>
         /// <remarks>
-        /// Negotiation can only be skipped when using <see cref="HttpTransportType.WebSockets"/> transport.
+        /// Negotiation can only be skipped when using the <see cref="HttpTransportType.WebSockets"/> transport.
         /// </remarks>
         public bool SkipNegotiation { get; set; }
 

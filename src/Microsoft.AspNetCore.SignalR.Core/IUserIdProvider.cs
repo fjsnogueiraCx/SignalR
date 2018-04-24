@@ -4,15 +4,16 @@
 namespace Microsoft.AspNetCore.SignalR
 {
     /// <summary>
-    /// A provider abstraction for getting the user ID from a <see cref="HubConnectionContext"/>.
+    /// A provider abstraction for configuring the "User ID" for a connection.
     /// </summary>
+    /// <remarks><see cref="IUserIdProvider"/> is used by <see cref="IHubClients{T}.User(string)"/> to invoke connections associated with a user.</remarks>
     public interface IUserIdProvider
     {
         /// <summary>
-        /// Gets the user ID from the specified connection.
+        /// Gets the user ID for the specified connection.
         /// </summary>
-        /// <param name="connection">The connection get get the user ID from.</param>
-        /// <returns>The user ID from the specified connection.</returns>
+        /// <param name="connection">The connection get get the user ID for.</param>
+        /// <returns>The user ID for the specified connection.</returns>
         string GetUserId(HubConnectionContext connection);
     }
 }

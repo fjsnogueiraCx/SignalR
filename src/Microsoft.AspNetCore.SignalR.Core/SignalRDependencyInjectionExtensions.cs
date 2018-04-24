@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.SignalR.Internal;
 namespace Microsoft.Extensions.DependencyInjection
 {
     /// <summary>
-    /// Extensions methods for <see cref="IServiceCollection"/>.
+    /// Extension methods for <see cref="IServiceCollection"/>.
     /// </summary>
     public static class SignalRDependencyInjectionExtensions
     {

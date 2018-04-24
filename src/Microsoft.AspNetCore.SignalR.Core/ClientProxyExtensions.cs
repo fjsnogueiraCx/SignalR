@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Microsoft.AspNetCore.SignalR
 {
     /// <summary>
-    /// Extensions methods for <see cref="IClientProxy"/>.
+    /// Extension methods for <see cref="IClientProxy"/>.
     /// </summary>
     public static class ClientProxyExtensions
     {
@@ -17,7 +17,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// Does not wait for a response from the receiver.
         /// </summary>
         /// <param name="clientProxy">The <see cref="IClientProxy"/></param>
-        /// <param name="method">name of the method to invoke.</param>
+        /// <param name="method">The name of the method to invoke.</param>
         /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that represents the asynchronous invoke.</returns>
         public static Task SendAsync(this IClientProxy clientProxy, string method, CancellationToken cancellationToken = default)
@@ -30,7 +30,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// Does not wait for a response from the receiver.
         /// </summary>
         /// <param name="clientProxy">The <see cref="IClientProxy"/></param>
-        /// <param name="method">name of the method to invoke.</param>
+        /// <param name="method">The name of the method to invoke.</param>
         /// <param name="arg1">The first argument.</param>
         /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
         /// <returns>A <see cref="Task"/> that represents the asynchronous invoke.</returns>
@@ -44,7 +44,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// Does not wait for a response from the receiver.
         /// </summary>
         /// <param name="clientProxy">The <see cref="IClientProxy"/></param>
-        /// <param name="method">name of the method to invoke.</param>
+        /// <param name="method">The name of the method to invoke.</param>
         /// <param name="arg1">The first argument.</param>
         /// <param name="arg2">The second argument.</param>
         /// <param name="cancellationToken">The token to monitor for cancellation requests. The default value is <see cref="CancellationToken.None" />.</param>
@@ -59,7 +59,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// Does not wait for a response from the receiver.
         /// </summary>
         /// <param name="clientProxy">The <see cref="IClientProxy"/></param>
-        /// <param name="method">name of the method to invoke.</param>
+        /// <param name="method">The name of the method to invoke.</param>
         /// <param name="arg1">The first argument.</param>
         /// <param name="arg2">The second argument.</param>
         /// <param name="arg3">The third argument.</param>
@@ -75,7 +75,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// Does not wait for a response from the receiver.
         /// </summary>
         /// <param name="clientProxy">The <see cref="IClientProxy"/></param>
-        /// <param name="method">name of the method to invoke.</param>
+        /// <param name="method">The name of the method to invoke.</param>
         /// <param name="arg1">The first argument.</param>
         /// <param name="arg2">The second argument.</param>
         /// <param name="arg3">The third argument.</param>
@@ -92,7 +92,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// Does not wait for a response from the receiver.
         /// </summary>
         /// <param name="clientProxy">The <see cref="IClientProxy"/></param>
-        /// <param name="method">name of the method to invoke.</param>
+        /// <param name="method">The name of the method to invoke.</param>
         /// <param name="arg1">The first argument.</param>
         /// <param name="arg2">The second argument.</param>
         /// <param name="arg3">The third argument.</param>
@@ -110,7 +110,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// Does not wait for a response from the receiver.
         /// </summary>
         /// <param name="clientProxy">The <see cref="IClientProxy"/></param>
-        /// <param name="method">name of the method to invoke.</param>
+        /// <param name="method">The name of the method to invoke.</param>
         /// <param name="arg1">The first argument.</param>
         /// <param name="arg2">The second argument.</param>
         /// <param name="arg3">The third argument.</param>
@@ -129,7 +129,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// Does not wait for a response from the receiver.
         /// </summary>
         /// <param name="clientProxy">The <see cref="IClientProxy"/></param>
-        /// <param name="method">name of the method to invoke.</param>
+        /// <param name="method">The name of the method to invoke.</param>
         /// <param name="arg1">The first argument.</param>
         /// <param name="arg2">The second argument.</param>
         /// <param name="arg3">The third argument.</param>
@@ -149,7 +149,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// Does not wait for a response from the receiver.
         /// </summary>
         /// <param name="clientProxy">The <see cref="IClientProxy"/></param>
-        /// <param name="method">name of the method to invoke.</param>
+        /// <param name="method">The name of the method to invoke.</param>
         /// <param name="arg1">The first argument.</param>
         /// <param name="arg2">The second argument.</param>
         /// <param name="arg3">The third argument.</param>
@@ -170,7 +170,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// Does not wait for a response from the receiver.
         /// </summary>
         /// <param name="clientProxy">The <see cref="IClientProxy"/></param>
-        /// <param name="method">name of the method to invoke.</param>
+        /// <param name="method">The name of the method to invoke.</param>
         /// <param name="arg1">The first argument.</param>
         /// <param name="arg2">The second argument.</param>
         /// <param name="arg3">The third argument.</param>
@@ -192,7 +192,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// Does not wait for a response from the receiver.
         /// </summary>
         /// <param name="clientProxy">The <see cref="IClientProxy"/></param>
-        /// <param name="method">name of the method to invoke.</param>
+        /// <param name="method">The name of the method to invoke.</param>
         /// <param name="arg1">The first argument.</param>
         /// <param name="arg2">The second argument.</param>
         /// <param name="arg3">The third argument.</param>

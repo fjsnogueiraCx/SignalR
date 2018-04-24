@@ -7,7 +7,7 @@ using System.Linq;
 namespace Microsoft.AspNetCore.SignalR.Protocol
 {
     /// <summary>
-    /// A base class for hub method invocation messages.
+    /// A base class for hub messages representing an invocation.
     /// </summary>
     public abstract class HubMethodInvocationMessage : HubInvocationMessage
     {
@@ -41,7 +41,7 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
     }
 
     /// <summary>
-    /// A hub invocation message.
+    /// A hub message representing a non-streaming invocation.
     /// </summary>
     public class InvocationMessage : HubMethodInvocationMessage
     {
@@ -83,12 +83,12 @@ namespace Microsoft.AspNetCore.SignalR.Protocol
     }
 
     /// <summary>
-    /// A streaming hub invocation message.
+    /// A hub message representing a streaming invocation.
     /// </summary>
     public class StreamInvocationMessage : HubMethodInvocationMessage
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InvocationMessage"/> class.
+        /// Initializes a new instance of the <see cref="StreamInvocationMessage"/> class.
         /// </summary>
         /// <param name="invocationId">The invocation ID.</param>
         /// <param name="target">The target method name.</param>

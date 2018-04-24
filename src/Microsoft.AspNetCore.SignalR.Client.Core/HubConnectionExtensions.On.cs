@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Microsoft.AspNetCore.SignalR.Client
 {
     /// <summary>
-    /// Extensions methods for <see cref="HubConnectionExtensions"/>.
+    /// Extension methods for <see cref="HubConnectionExtensions"/>.
     /// </summary>
     public static partial class HubConnectionExtensions
     {
@@ -22,7 +22,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Registers a handler that will be invoked the hub method with the specified method name is invoked.
+        /// Registers a handler that will be invoked when the hub method with the specified method name is invoked.
         /// </summary>
         /// <param name="hubConnection">The hub connection.</param>
         /// <param name="methodName">The name of the hub method to define.</param>
@@ -39,7 +39,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Registers a handler that will be invoked the hub method with the specified method name is invoked.
+        /// Registers a handler that will be invoked when the hub method with the specified method name is invoked.
         /// </summary>
         /// <typeparam name="T1">The first argument type.</typeparam>
         /// <param name="hubConnection">The hub connection.</param>
@@ -59,7 +59,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Registers a handler that will be invoked the hub method with the specified method name is invoked.
+        /// Registers a handler that will be invoked when the hub method with the specified method name is invoked.
         /// </summary>
         /// <typeparam name="T1">The first argument type.</typeparam>
         /// <typeparam name="T2">The second argument type.</typeparam>
@@ -80,7 +80,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Registers a handler that will be invoked the hub method with the specified method name is invoked.
+        /// Registers a handler that will be invoked when the hub method with the specified method name is invoked.
         /// </summary>
         /// <typeparam name="T1">The first argument type.</typeparam>
         /// <typeparam name="T2">The second argument type.</typeparam>
@@ -102,7 +102,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Registers a handler that will be invoked the hub method with the specified method name is invoked.
+        /// Registers a handler that will be invoked when the hub method with the specified method name is invoked.
         /// </summary>
         /// <typeparam name="T1">The first argument type.</typeparam>
         /// <typeparam name="T2">The second argument type.</typeparam>
@@ -125,7 +125,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Registers a handler that will be invoked the hub method with the specified method name is invoked.
+        /// Registers a handler that will be invoked when the hub method with the specified method name is invoked.
         /// </summary>
         /// <typeparam name="T1">The first argument type.</typeparam>
         /// <typeparam name="T2">The second argument type.</typeparam>
@@ -149,7 +149,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Registers a handler that will be invoked the hub method with the specified method name is invoked.
+        /// Registers a handler that will be invoked when the hub method with the specified method name is invoked.
         /// </summary>
         /// <typeparam name="T1">The first argument type.</typeparam>
         /// <typeparam name="T2">The second argument type.</typeparam>
@@ -174,7 +174,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Registers a handler that will be invoked the hub method with the specified method name is invoked.
+        /// Registers a handler that will be invoked when the hub method with the specified method name is invoked.
         /// </summary>
         /// <typeparam name="T1">The first argument type.</typeparam>
         /// <typeparam name="T2">The second argument type.</typeparam>
@@ -200,7 +200,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Registers a handler that will be invoked the hub method with the specified method name is invoked.
+        /// Registers a handler that will be invoked when the hub method with the specified method name is invoked.
         /// </summary>
         /// <typeparam name="T1">The first argument type.</typeparam>
         /// <typeparam name="T2">The second argument type.</typeparam>
@@ -227,7 +227,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Registers a handler that will be invoked the hub method with the specified method name is invoked.
+        /// Registers a handler that will be invoked when the hub method with the specified method name is invoked.
         /// </summary>
         /// <param name="hubConnection">The hub connection.</param>
         /// <param name="methodName">The name of the hub method to define.</param>

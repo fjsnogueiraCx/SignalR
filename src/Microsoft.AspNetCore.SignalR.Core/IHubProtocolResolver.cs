@@ -12,12 +12,12 @@ namespace Microsoft.AspNetCore.SignalR
     public interface IHubProtocolResolver
     {
         /// <summary>
-        /// Gets a collection of all protocols.
+        /// Gets a collection of all available hub protocols.
         /// </summary>
         IReadOnlyList<IHubProtocol> AllProtocols { get; }
 
         /// <summary>
-        /// Gets a protocol using the specified protocol name and a collection of supported protocols.
+        /// Gets the hub protocol with the specified name, if it is allowed by the specified list of supported protocols.
         /// </summary>
         /// <param name="protocolName">The protocol name.</param>
         /// <param name="supportedProtocols">A collection of supported protocols.</param>

@@ -52,6 +52,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         // Prevents from being displayed in intellisense
+        /// <inheritdoc />
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode()
         {
@@ -59,6 +60,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         // Prevents from being displayed in intellisense
+        /// <inheritdoc />
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object obj)
         {
@@ -66,6 +68,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         // Prevents from being displayed in intellisense
+        /// <inheritdoc />
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override string ToString()
         {

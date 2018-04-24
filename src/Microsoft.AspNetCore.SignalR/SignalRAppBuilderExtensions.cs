@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.SignalR;
 namespace Microsoft.AspNetCore.Builder
 {
     /// <summary>
-    /// Extensions methods for <see cref="IApplicationBuilder"/>.
+    /// Extension methods for <see cref="IApplicationBuilder"/>.
     /// </summary>
     public static class SignalRAppBuilderExtensions
     {

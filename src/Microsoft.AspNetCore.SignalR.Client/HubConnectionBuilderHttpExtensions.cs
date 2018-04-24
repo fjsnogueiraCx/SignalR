@@ -9,12 +9,12 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Microsoft.AspNetCore.SignalR.Client
 {
     /// <summary>
-    /// Extensions methods for <see cref="IHubConnectionBuilder"/>.
+    /// Extension methods for <see cref="IHubConnectionBuilder"/>.
     /// </summary>
     public static class HubConnectionBuilderHttpExtensions
     {
         /// <summary>
-        /// Adds a URL for configuring a <see cref="HttpConnection"/> the <see cref="HubConnection"/> will use.
+        /// Configures the <see cref="HubConnection" /> to use HTTP-based transports to connect to the specified URL.
         /// </summary>
         /// <param name="hubConnectionBuilder">The <see cref="IHubConnectionBuilder" /> to configure.</param>
         /// <param name="url">The URL the <see cref="HttpConnection"/> will use.</param>
@@ -26,7 +26,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Adds a URL and delegate for configuring a <see cref="HttpConnection"/> the <see cref="HubConnection"/> will use.
+        /// Configures the <see cref="HubConnection" /> to use HTTP-based transports to connect to the specified URL.
         /// </summary>
         /// <param name="hubConnectionBuilder">The <see cref="IHubConnectionBuilder" /> to configure.</param>
         /// <param name="url">The URL the <see cref="HttpConnection"/> will use.</param>
@@ -39,11 +39,11 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Adds a URL and transport for configuring a <see cref="HttpConnection"/> the <see cref="HubConnection"/> will use.
+        /// Configures the <see cref="HubConnection" /> to use HTTP-based transports to connect to the specified URL and transports.
         /// </summary>
         /// <param name="hubConnectionBuilder">The <see cref="IHubConnectionBuilder" /> to configure.</param>
         /// <param name="url">The URL the <see cref="HttpConnection"/> will use.</param>
-        /// <param name="transports">The transport the <see cref="HttpConnection"/> will use.</param>
+        /// <param name="transports">A bitmask comprised of one or more <see cref="HttpTransportType"/> that specify what transports the client should use.</param>
         /// <returns>The same instance of the <see cref="IHubConnectionBuilder"/> for chaining.</returns>
         public static IHubConnectionBuilder WithUrl(this IHubConnectionBuilder hubConnectionBuilder, string url, HttpTransportType transports)
         {
@@ -52,11 +52,11 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Adds a URL, transport and delegate for configuring a <see cref="HttpConnection"/> the <see cref="HubConnection"/> will use.
+        /// Configures the <see cref="HubConnection" /> to use HTTP-based transports to connect to the specified URL and transports.
         /// </summary>
         /// <param name="hubConnectionBuilder">The <see cref="IHubConnectionBuilder" /> to configure.</param>
         /// <param name="url">The URL the <see cref="HttpConnection"/> will use.</param>
-        /// <param name="transports">The transport the <see cref="HttpConnection"/> will use.</param>
+        /// <param name="transports">A bitmask comprised of one or more <see cref="HttpTransportType"/> that specify what transports the client should use.</param>
         /// <param name="configureHttpConnection">The delegate that configures the <see cref="HttpConnection"/>.</param>
         /// <returns>The same instance of the <see cref="IHubConnectionBuilder"/> for chaining.</returns>
         public static IHubConnectionBuilder WithUrl(this IHubConnectionBuilder hubConnectionBuilder, string url, HttpTransportType transports, Action<HttpConnectionOptions> configureHttpConnection)
@@ -66,7 +66,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Adds a URL for configuring a <see cref="HttpConnection"/> the <see cref="HubConnection"/> will use.
+        /// Configures the <see cref="HubConnection" /> to use HTTP-based transports to connect to the specified URL.
         /// </summary>
         /// <param name="hubConnectionBuilder">The <see cref="IHubConnectionBuilder" /> to configure.</param>
         /// <param name="url">The URL the <see cref="HttpConnection"/> will use.</param>
@@ -78,7 +78,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Adds a URL and delegate for configuring a <see cref="HttpConnection"/> the <see cref="HubConnection"/> will use.
+        /// Configures the <see cref="HubConnection" /> to use HTTP-based transports to connect to the specified URL.
         /// </summary>
         /// <param name="hubConnectionBuilder">The <see cref="IHubConnectionBuilder" /> to configure.</param>
         /// <param name="url">The URL the <see cref="HttpConnection"/> will use.</param>
@@ -91,11 +91,11 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Adds a URL and transport for configuring a <see cref="HttpConnection"/> the <see cref="HubConnection"/> will use.
+        /// Configures the <see cref="HubConnection" /> to use HTTP-based transports to connect to the specified URL and transports.
         /// </summary>
         /// <param name="hubConnectionBuilder">The <see cref="IHubConnectionBuilder" /> to configure.</param>
         /// <param name="url">The URL the <see cref="HttpConnection"/> will use.</param>
-        /// <param name="transports">The transport the <see cref="HttpConnection"/> will use.</param>
+        /// <param name="transports">A bitmask comprised of one or more <see cref="HttpTransportType"/> that specify what transports the client should use.</param>
         /// <returns>The same instance of the <see cref="IHubConnectionBuilder"/> for chaining.</returns>
         public static IHubConnectionBuilder WithUrl(this IHubConnectionBuilder hubConnectionBuilder, Uri url, HttpTransportType transports)
         {
@@ -104,11 +104,11 @@ namespace Microsoft.AspNetCore.SignalR.Client
         }
 
         /// <summary>
-        /// Adds a URL, transport and delegate for configuring a <see cref="HttpConnection"/> the <see cref="HubConnection"/> will use.
+        /// Configures the <see cref="HubConnection" /> to use HTTP-based transports to connect to the specified URL and transports.
         /// </summary>
         /// <param name="hubConnectionBuilder">The <see cref="IHubConnectionBuilder" /> to configure.</param>
         /// <param name="url">The URL the <see cref="HttpConnection"/> will use.</param>
-        /// <param name="transports">The transport the <see cref="HttpConnection"/> will use.</param>
+        /// <param name="transports">A bitmask comprised of one or more <see cref="HttpTransportType"/> that specify what transports the client should use.</param>
         /// <param name="configureHttpConnection">The delegate that configures the <see cref="HttpConnection"/>.</param>
         /// <returns>The same instance of the <see cref="IHubConnectionBuilder"/> for chaining.</returns>
         public static IHubConnectionBuilder WithUrl(this IHubConnectionBuilder hubConnectionBuilder, Uri url, HttpTransportType transports, Action<HttpConnectionOptions> configureHttpConnection)

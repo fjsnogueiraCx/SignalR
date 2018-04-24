@@ -14,7 +14,7 @@ using Microsoft.Extensions.Options;
 namespace Microsoft.AspNetCore.SignalR
 {
     /// <summary>
-    /// Represents a SignalR hub end point that multiple connections connect to.
+    /// Handles incoming connections and implements the SignalR Hub Protocol.
     /// </summary>
     public class HubConnectionHandler<THub> : ConnectionHandler where THub : Hub
     {
@@ -34,7 +34,7 @@ namespace Microsoft.AspNetCore.SignalR
         /// <param name="lifetimeManager">The hub lifetime manager.</param>
         /// <param name="protocolResolver">The protocol resolver used to resolve the protocols between client and server.</param>
         /// <param name="globalHubOptions">The global options used to initialize hubs.</param>
-        /// <param name="hubOptions">Hub type specific options used to initialize hubs. These options override the global options.</param>
+        /// <param name="hubOptions">Hub specific options used to initialize hubs. These options override the global options.</param>
         /// <param name="loggerFactory">The logger factory.</param>
         /// <param name="userIdProvider">The user ID provider used to get the user ID from a hub connection.</param>
         /// <param name="dispatcher">The hub dispatcher used to dispatch incoming messages to hubs.</param>
