@@ -124,6 +124,7 @@ namespace Microsoft.AspNetCore.SignalR.Client
             }
         }
 
+        // If the registered callback blocks it can cause the client to stop receiving messages. If you need to block, get off the current thread first.
         /// <summary>
         /// Registers a handler that will be invoked when the hub method with the specified method name is invoked.
         /// </summary>
@@ -529,9 +530,6 @@ namespace Microsoft.AspNetCore.SignalR.Client
 
         private async Task DispatchInvocationAsync(InvocationMessage invocation)
         {
-            // Make sure we get off the main event loop before we dispatch into user code
-            await AwaitableThreadPool.Yield();
-
             // Find the handler
             if (!_handlers.TryGetValue(invocation.Target, out var invocationHandlerList))
             {
