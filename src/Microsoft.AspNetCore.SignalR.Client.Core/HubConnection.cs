@@ -21,7 +21,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 namespace Microsoft.AspNetCore.SignalR.Client
 {
     /// <summary>
-    /// A connection used to invoke methods on SignalR server's hubs.
+    /// A connection used to invoke hub methods on a SignalR Server.
     /// </summary>
     /// <remarks>
     /// A <see cref="HubConnection"/> should be created using <see cref="HubConnectionBuilder"/>.
