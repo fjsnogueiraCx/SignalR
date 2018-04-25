@@ -32,7 +32,7 @@ namespace Microsoft.AspNetCore.SignalR
         public IList<string> SupportedProtocols { get; set; } = null;
 
         /// <summary>
-        /// Gets or sets a value indicating whether detailed error messages are sent the client.
+        /// Gets or sets a value indicating whether detailed error messages are sent to the client.
         /// Detailed error messages include details from exceptions thrown on the server.
         /// </summary>
         public bool? EnableDetailedErrors { get; set; } = null;

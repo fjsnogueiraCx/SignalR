@@ -29,7 +29,7 @@ namespace Microsoft.AspNetCore.SignalR
         public abstract Task OnDisconnectedAsync(HubConnectionContext connection);
 
         /// <summary>
-        /// Send an invocation message to all hub connections.
+        /// Sends an invocation message to all hub connections.
         /// </summary>
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
@@ -38,7 +38,7 @@ namespace Microsoft.AspNetCore.SignalR
         public abstract Task SendAllAsync(string methodName, object[] args, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Send an invocation message to all hub connections excluding the specified connections.
+        /// Sends an invocation message to all hub connections excluding the specified connections.
         /// </summary>
         /// <param name="methodName">The invocation method name.</param>
         /// <param name="args">The invocation arguments.</param>
@@ -48,7 +48,7 @@ namespace Microsoft.AspNetCore.SignalR
         public abstract Task SendAllExceptAsync(string methodName, object[] args, IReadOnlyList<string> excludedConnectionIds, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Send an invocation message to the specified connection.
+        /// Sends an invocation message to the specified connection.
         /// </summary>
         /// <param name="connectionId">The connection ID.</param>
         /// <param name="methodName">The invocation method name.</param>
@@ -58,7 +58,7 @@ namespace Microsoft.AspNetCore.SignalR
         public abstract Task SendConnectionAsync(string connectionId, string methodName, object[] args, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Send an invocation message to the specified connections.
+        /// Sends an invocation message to the specified connections.
         /// </summary>
         /// <param name="connectionIds">The connection IDs.</param>
         /// <param name="methodName">The invocation method name.</param>
@@ -68,7 +68,7 @@ namespace Microsoft.AspNetCore.SignalR
         public abstract Task SendConnectionsAsync(IReadOnlyList<string> connectionIds, string methodName, object[] args, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Send an invocation message to the specified group.
+        /// Sends an invocation message to the specified group.
         /// </summary>
         /// <param name="groupName">The group name.</param>
         /// <param name="methodName">The invocation method name.</param>
@@ -78,7 +78,7 @@ namespace Microsoft.AspNetCore.SignalR
         public abstract Task SendGroupAsync(string groupName, string methodName, object[] args, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Send an invocation message to the specified groups.
+        /// Sends an invocation message to the specified groups.
         /// </summary>
         /// <param name="groupNames">The group names.</param>
         /// <param name="methodName">The invocation method name.</param>
@@ -88,7 +88,7 @@ namespace Microsoft.AspNetCore.SignalR
         public abstract Task SendGroupsAsync(IReadOnlyList<string> groupNames, string methodName, object[] args, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Send an invocation message to the specified group excluding the specified connections.
+        /// Sends an invocation message to the specified group excluding the specified connections.
         /// </summary>
         /// <param name="groupName">The group name.</param>
         /// <param name="methodName">The invocation method name.</param>
@@ -99,7 +99,7 @@ namespace Microsoft.AspNetCore.SignalR
         public abstract Task SendGroupExceptAsync(string groupName, string methodName, object[] args, IReadOnlyList<string> excludedConnectionIds, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Send an invocation message to the specified user.
+        /// Sends an invocation message to the specified user.
         /// </summary>
         /// <param name="userId">The user ID.</param>
         /// <param name="methodName">The invocation method name.</param>
@@ -109,7 +109,7 @@ namespace Microsoft.AspNetCore.SignalR
         public abstract Task SendUserAsync(string userId, string methodName, object[] args, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Send an invocation message to the specified users.
+        /// Sends an invocation message to the specified users.
         /// </summary>
         /// <param name="userIds">The user IDs.</param>
         /// <param name="methodName">The invocation method name.</param>

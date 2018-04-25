@@ -7,8 +7,16 @@ using Microsoft.AspNetCore.Http.Connections.Features;
 
 namespace Microsoft.AspNetCore.SignalR
 {
+    /// <summary>
+    /// Extension methods for accessing <see cref="HttpContext"/> from a hub context.
+    /// </summary>
     public static class GetHttpContextExtensions
     {
+        /// <summary>
+        /// Gets <see cref="HttpContext"/> from the specified connection.
+        /// </summary>
+        /// <param name="connection">The connection.</param>
+        /// <returns>The connection's <see cref="HttpContext"/>.</returns>
         public static HttpContext GetHttpContext(this HubCallerContext connection)
         {
             if (connection == null)
@@ -18,6 +26,11 @@ namespace Microsoft.AspNetCore.SignalR
             return connection.Features.Get<IHttpContextFeature>()?.HttpContext;
         }
 
+        /// <summary>
+        /// Gets <see cref="HttpContext"/> from the specified connection.
+        /// </summary>
+        /// <param name="connection">The connection.</param>
+        /// <returns>The connection's <see cref="HttpContext"/>.</returns>
         public static HttpContext GetHttpContext(this HubConnectionContext connection)
         {
             if (connection == null)

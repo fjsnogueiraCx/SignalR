@@ -13,6 +13,12 @@ namespace Microsoft.Extensions.DependencyInjection
     /// </summary>
     public static class SignalRDependencyInjectionExtensions
     {
+        /// <summary>
+        /// Adds hub specified options to an <see cref="ISignalRServerBuilder"/>.
+        /// </summary>
+        /// <param name="signalrBuilder">The <see cref="ISignalRServerBuilder"/>.</param>
+        /// <param name="options">A callback to configure the hub options.</param>
+        /// <returns>The same instance of the <see cref="ISignalRServerBuilder"/> for chaining.</returns>
         public static ISignalRServerBuilder AddHubOptions<THub>(this ISignalRServerBuilder signalrBuilder, Action<HubOptions<THub>> options) where THub : Hub
         {
             signalrBuilder.Services.AddSingleton<IConfigureOptions<HubOptions<THub>>, HubOptionsSetup<THub>>();
